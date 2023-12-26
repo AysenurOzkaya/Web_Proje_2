@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Web_Proje_2.Models.HamMadde>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MevcutMiktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiktarCin.MiktarCins)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MevcutMiktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiktarCin.MiktarCins)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HamMaddeAd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HamMaddeAd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HamMaddeAd })
+        </td>
+    </tr>
+}
+
+</table>

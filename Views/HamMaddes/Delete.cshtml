@@ -1,0 +1,48 @@
+﻿@model Web_Proje_2.Models.HamMadde
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HamMadde</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MevcutMiktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MevcutMiktar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiktarCin.MiktarCins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiktarCin.MiktarCins)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

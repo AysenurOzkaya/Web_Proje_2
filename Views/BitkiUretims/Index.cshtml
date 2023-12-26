@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiUretim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SeraNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UretimAded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Renk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BitkiCin.LatinceAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calisan.Sifre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeraNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UretimAded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Renk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BitkiCin.LatinceAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calisan.Sifre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UretimNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UretimNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UretimNo })
+        </td>
+    </tr>
+}
+
+</table>

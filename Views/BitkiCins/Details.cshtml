@@ -1,0 +1,66 @@
+﻿@model Web_Proje_2.Models.BitkiCin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BitkiCin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MevcutAded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MevcutAded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LatinceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LatinceAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiTur1.Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiTur1.Resim)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BitkiCinsAd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8db839a2efd4d6890515efcfa397702" Name="Diagram1">
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BahceMalzemeleri" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BahceMalzemeUrun" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Bitki" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BitkiCin" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BitkiTur" Width="1.5" PointX="3.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BitkiUretim" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.BitkiUretim_HamMadde" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Calisan" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.HamMadde" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.HamMadde_SatinAlma" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.MiktarCin" Width="1.5" PointX="1.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Musteri" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Sepet" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Sipari" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Web_ProgramlamaModel.Tedarikci" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BahceMalz__Bahce__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BahceMalz__Tedar__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Siparis__YanMalz__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Bitki__BitkiCins__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Bitki__UretimNo__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiCins__Bitki__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiUret__Bitki__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Siparis__BitkiCi__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiUret__Kayıt__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiUret__Ureti__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiUret__HamMa__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__BitkiUret__Mikta__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__HamMadde___Satin__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__HamMadde___HamMa__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__HamMadde__Miktar__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__HamMadde___Mikta__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__HamMadde___Tedar__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Sepet__MusteriID__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Siparis__Musteri__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="Web_ProgramlamaModel.FK__Sepet__SiparisID__01142BA1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

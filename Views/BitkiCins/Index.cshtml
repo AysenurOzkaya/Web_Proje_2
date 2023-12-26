@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiCin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MevcutAded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LatinceAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BitkiTur1.Resim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MevcutAded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LatinceAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BitkiTur1.Resim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BitkiCinsAd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BitkiCinsAd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BitkiCinsAd })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model Web_Proje_2.Models.HamMadde
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HamMadde</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MevcutMiktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MevcutMiktar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiktarCin.MiktarCins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiktarCin.MiktarCins)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HamMaddeAd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

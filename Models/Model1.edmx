@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Web_ProgramlamaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BahceMalzemeleri">
+          <Key>
+            <PropertyRef Name="BahceMalzemeAd" />
+          </Key>
+          <Property Name="BahceMalzemeAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MevcutAdet" Type="int" Nullable="false" />
+          <Property Name="Fiyat" Type="smallint" Nullable="false" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="256" />
+          <Property Name="TedarikciID" Type="int" />
+        </EntityType>
+        <EntityType Name="BahceMalzemeUrun">
+          <Key>
+            <PropertyRef Name="SeriNo" />
+          </Key>
+          <Property Name="SeriNo" Type="int" Nullable="false" />
+          <Property Name="BahceMalzemeAd" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Bitki">
+          <Key>
+            <PropertyRef Name="SeriNo" />
+          </Key>
+          <Property Name="SeriNo" Type="int" Nullable="false" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="30" />
+          <Property Name="UretimNo" Type="int" />
+          <Property Name="BitkiCinsAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BitkiCins">
+          <Key>
+            <PropertyRef Name="BitkiCinsAd" />
+          </Key>
+          <Property Name="BitkiCinsAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MevcutAded" Type="int" Nullable="false" />
+          <Property Name="LatinceAd" Type="nvarchar" MaxLength="30" />
+          <Property Name="BitkiTur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fiyat" Type="smallint" Nullable="false" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="256" />
+          <Property Name="DepoID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="BitkiTur">
+          <Key>
+            <PropertyRef Name="BitkiTurAd" />
+          </Key>
+          <Property Name="BitkiTurAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="BitkiUretim">
+          <Key>
+            <PropertyRef Name="UretimNo" />
+          </Key>
+          <Property Name="UretimNo" Type="int" Nullable="false" />
+          <Property Name="SeraNo" Type="smallint" Nullable="false" />
+          <Property Name="UretimAded" Type="int" Nullable="false" />
+          <Property Name="BitkiCinsAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Nullable="false" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="30" />
+          <Property Name="Kayıt_Eden_Calisan" Type="int" />
+        </EntityType>
+        <EntityType Name="BitkiUretim_HamMadde">
+          <Key>
+            <PropertyRef Name="KullanımNo" />
+          </Key>
+          <Property Name="KullanımNo" Type="int" Nullable="false" />
+          <Property Name="UretimNo" Type="int" Nullable="false" />
+          <Property Name="HamMaddeAd" Type="nvarchar" MaxLength="30" />
+          <Property Name="MiktarCinsi" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Miktar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="int" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="30" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="30" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="HamMadde">
+          <Key>
+            <PropertyRef Name="HamMaddeAd" />
+          </Key>
+          <Property Name="HamMaddeAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MevcutMiktar" Type="int" Nullable="false" />
+          <Property Name="MiktarCins" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DepoID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HamMadde_SatinAlma">
+          <Key>
+            <PropertyRef Name="SatinAlmaNumarasi" />
+          </Key>
+          <Property Name="SatinAlmaNumarasi" Type="int" Nullable="false" />
+          <Property Name="HamMaddeAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TedarikciID" Type="int" Nullable="false" />
+          <Property Name="MiktarCins" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Miktar" Type="int" Nullable="false" />
+          <Property Name="Tutar" Type="int" Nullable="false" />
+          <Property Name="SatinAlanCalisan" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MiktarCins">
+          <Key>
+            <PropertyRef Name="MiktarCins" />
+          </Key>
+          <Property Name="MiktarCins" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Musteri">
+          <Key>
+            <PropertyRef Name="MusteriID" />
+          </Key>
+          <Property Name="MusteriID" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Yas" Type="tinyint" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="10" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Sepet">
+          <Key>
+            <PropertyRef Name="SepetID" />
+          </Key>
+          <Property Name="SepetID" Type="int" Nullable="false" />
+          <Property Name="SiparisID" Type="int" Nullable="false" />
+          <Property Name="MusteriID" Type="int" Nullable="false" />
+          <Property Name="Urun" Type="nvarchar" MaxLength="30" />
+          <Property Name="UrunAdet" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="SiparisID" />
+          </Key>
+          <Property Name="SiparisID" Type="int" Nullable="false" />
+          <Property Name="MusteriID" Type="int" Nullable="false" />
+          <Property Name="SiparisTarihi" Type="datetime" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="150" />
+          <Property Name="BitkiCinsAd" Type="nvarchar" MaxLength="30" />
+          <Property Name="SiparisAdedi" Type="smallint" />
+          <Property Name="YanMalzeme" Type="nvarchar" MaxLength="30" />
+          <Property Name="Renk" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tedarikci">
+          <Key>
+            <PropertyRef Name="TedarikciID" />
+          </Key>
+          <Property Name="TedarikciID" Type="int" Nullable="false" />
+          <Property Name="FirmaAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="IBAN" Type="nvarchar" MaxLength="34" />
+        </EntityType>
+        <Association Name="FK__BahceMalz__Bahce__66603565">
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="0..1" />
+          <End Role="BahceMalzemeUrun" Type="Self.BahceMalzemeUrun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BahceMalzemeleri">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Principal>
+            <Dependent Role="BahceMalzemeUrun">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BahceMalz__Tedar__7A672E12">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="0..1" />
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="TedarikciID" />
+            </Principal>
+            <Dependent Role="BahceMalzemeleri">
+              <PropertyRef Name="TedarikciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bitki__BitkiCins__3C69FB99">
+          <End Role="BitkiCins" Type="Self.BitkiCins" Multiplicity="1" />
+          <End Role="Bitki" Type="Self.Bitki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="Bitki">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bitki__UretimNo__3B75D760">
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="0..1" />
+          <End Role="Bitki" Type="Self.Bitki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiUretim">
+              <PropertyRef Name="UretimNo" />
+            </Principal>
+            <Dependent Role="Bitki">
+              <PropertyRef Name="UretimNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiCins__Bitki__619B8048">
+          <End Role="BitkiTur" Type="Self.BitkiTur" Multiplicity="0..1" />
+          <End Role="BitkiCins" Type="Self.BitkiCins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiTur">
+              <PropertyRef Name="BitkiTurAd" />
+            </Principal>
+            <Dependent Role="BitkiCins">
+              <PropertyRef Name="BitkiTur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Bitki__3D5E1FD2">
+          <End Role="BitkiCins" Type="Self.BitkiCins" Multiplicity="1" />
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="BitkiUretim">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__HamMa__5812160E">
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="0..1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Kayıt__693CA210">
+          <End Role="Calisan" Type="Self.Calisan" Multiplicity="0..1" />
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calisan">
+              <PropertyRef Name="CalisanID" />
+            </Principal>
+            <Dependent Role="BitkiUretim">
+              <PropertyRef Name="Kayıt_Eden_Calisan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Mikta__5CD6CB2B">
+          <End Role="MiktarCins" Type="Self.MiktarCins" Multiplicity="1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="MiktarCinsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Ureti__571DF1D5">
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiUretim">
+              <PropertyRef Name="UretimNo" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="UretimNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___HamMa__59063A47">
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="HamMaddeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Mikta__5BE2A6F2">
+          <End Role="MiktarCins" Type="Self.MiktarCins" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="MiktarCins" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Satin__6A30C649">
+          <End Role="Calisan" Type="Self.Calisan" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calisan">
+              <PropertyRef Name="CalisanID" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="SatinAlanCalisan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Tedar__70DDC3D8">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="TedarikciID" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="TedarikciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde__Miktar__5DCAEF64">
+          <End Role="MiktarCins" Type="Self.MiktarCins" Multiplicity="1" />
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="HamMadde">
+              <PropertyRef Name="MiktarCins" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sepet__MusteriID__00200768">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="MusteriID" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sepet__SiparisID__01142BA1">
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="SiparisID" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="SiparisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__BitkiCi__4D94879B">
+          <End Role="BitkiCins" Type="Self.BitkiCins" Multiplicity="0..1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__Musteri__6D0D32F4">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="MusteriID" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__YanMalz__71D1E811">
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="0..1" />
+          <End Role="Siparis" Type="Self.Siparis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BahceMalzemeleri">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="YanMalzeme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Web_ProgramlamaModelStoreContainer">
+          <EntitySet Name="BahceMalzemeleri" EntityType="Self.BahceMalzemeleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BahceMalzemeUrun" EntityType="Self.BahceMalzemeUrun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitki" EntityType="Self.Bitki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiCins" EntityType="Self.BitkiCins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiTur" EntityType="Self.BitkiTur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiUretim" EntityType="Self.BitkiUretim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiUretim_HamMadde" EntityType="Self.BitkiUretim_HamMadde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calisan" EntityType="Self.Calisan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HamMadde" EntityType="Self.HamMadde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HamMadde_SatinAlma" EntityType="Self.HamMadde_SatinAlma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MiktarCins" EntityType="Self.MiktarCins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tedarikci" EntityType="Self.Tedarikci" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BahceMalz__Bahce__66603565" Association="Self.FK__BahceMalz__Bahce__66603565">
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleri" />
+            <End Role="BahceMalzemeUrun" EntitySet="BahceMalzemeUrun" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BahceMalz__Tedar__7A672E12" Association="Self.FK__BahceMalz__Tedar__7A672E12">
+            <End Role="Tedarikci" EntitySet="Tedarikci" />
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bitki__BitkiCins__3C69FB99" Association="Self.FK__Bitki__BitkiCins__3C69FB99">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="Bitki" EntitySet="Bitki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bitki__UretimNo__3B75D760" Association="Self.FK__Bitki__UretimNo__3B75D760">
+            <End Role="BitkiUretim" EntitySet="BitkiUretim" />
+            <End Role="Bitki" EntitySet="Bitki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiCins__Bitki__619B8048" Association="Self.FK__BitkiCins__Bitki__619B8048">
+            <End Role="BitkiTur" EntitySet="BitkiTur" />
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Bitki__3D5E1FD2" Association="Self.FK__BitkiUret__Bitki__3D5E1FD2">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="BitkiUretim" EntitySet="BitkiUretim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__HamMa__5812160E" Association="Self.FK__BitkiUret__HamMa__5812160E">
+            <End Role="HamMadde" EntitySet="HamMadde" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Kayıt__693CA210" Association="Self.FK__BitkiUret__Kayıt__693CA210">
+            <End Role="Calisan" EntitySet="Calisan" />
+            <End Role="BitkiUretim" EntitySet="BitkiUretim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Mikta__5CD6CB2B" Association="Self.FK__BitkiUret__Mikta__5CD6CB2B">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Ureti__571DF1D5" Association="Self.FK__BitkiUret__Ureti__571DF1D5">
+            <End Role="BitkiUretim" EntitySet="BitkiUretim" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___HamMa__59063A47" Association="Self.FK__HamMadde___HamMa__59063A47">
+            <End Role="HamMadde" EntitySet="HamMadde" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Mikta__5BE2A6F2" Association="Self.FK__HamMadde___Mikta__5BE2A6F2">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Satin__6A30C649" Association="Self.FK__HamMadde___Satin__6A30C649">
+            <End Role="Calisan" EntitySet="Calisan" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Tedar__70DDC3D8" Association="Self.FK__HamMadde___Tedar__70DDC3D8">
+            <End Role="Tedarikci" EntitySet="Tedarikci" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde__Miktar__5DCAEF64" Association="Self.FK__HamMadde__Miktar__5DCAEF64">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="HamMadde" EntitySet="HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sepet__MusteriID__00200768" Association="Self.FK__Sepet__MusteriID__00200768">
+            <End Role="Musteri" EntitySet="Musteri" />
+            <End Role="Sepet" EntitySet="Sepet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sepet__SiparisID__01142BA1" Association="Self.FK__Sepet__SiparisID__01142BA1">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="Sepet" EntitySet="Sepet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__BitkiCi__4D94879B" Association="Self.FK__Siparis__BitkiCi__4D94879B">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__Musteri__6D0D32F4" Association="Self.FK__Siparis__Musteri__6D0D32F4">
+            <End Role="Musteri" EntitySet="Musteri" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__YanMalz__71D1E811" Association="Self.FK__Siparis__YanMalz__71D1E811">
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleri" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Web_ProgramlamaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BahceMalzemeleri">
+          <Key>
+            <PropertyRef Name="BahceMalzemeAd" />
+          </Key>
+          <Property Name="BahceMalzemeAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MevcutAdet" Type="Int32" Nullable="false" />
+          <Property Name="Fiyat" Type="Int16" Nullable="false" />
+          <Property Name="Resim" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TedarikciID" Type="Int32" />
+          <NavigationProperty Name="BahceMalzemeUruns" Relationship="Self.FK__BahceMalz__Bahce__66603565" FromRole="BahceMalzemeleri" ToRole="BahceMalzemeUrun" />
+          <NavigationProperty Name="Tedarikci" Relationship="Self.FK__BahceMalz__Tedar__7A672E12" FromRole="BahceMalzemeleri" ToRole="Tedarikci" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK__Siparis__YanMalz__71D1E811" FromRole="BahceMalzemeleri" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="BahceMalzemeUrun">
+          <Key>
+            <PropertyRef Name="SeriNo" />
+          </Key>
+          <Property Name="SeriNo" Type="Int32" Nullable="false" />
+          <Property Name="BahceMalzemeAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BahceMalzemeleri" Relationship="Self.FK__BahceMalz__Bahce__66603565" FromRole="BahceMalzemeUrun" ToRole="BahceMalzemeleri" />
+        </EntityType>
+        <EntityType Name="Bitki">
+          <Key>
+            <PropertyRef Name="SeriNo" />
+          </Key>
+          <Property Name="SeriNo" Type="Int32" Nullable="false" />
+          <Property Name="Renk" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UretimNo" Type="Int32" />
+          <Property Name="BitkiCinsAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BitkiCin" Relationship="Self.FK__Bitki__BitkiCins__3C69FB99" FromRole="Bitki" ToRole="BitkiCins" />
+          <NavigationProperty Name="BitkiUretim" Relationship="Self.FK__Bitki__UretimNo__3B75D760" FromRole="Bitki" ToRole="BitkiUretim" />
+        </EntityType>
+        <EntityType Name="BitkiCin">
+          <Key>
+            <PropertyRef Name="BitkiCinsAd" />
+          </Key>
+          <Property Name="BitkiCinsAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MevcutAded" Type="Int32" Nullable="false" />
+          <Property Name="LatinceAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BitkiTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat" Type="Int16" Nullable="false" />
+          <Property Name="Resim" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DepoID" Type="Int16" />
+          <NavigationProperty Name="Bitkis" Relationship="Self.FK__Bitki__BitkiCins__3C69FB99" FromRole="BitkiCins" ToRole="Bitki" />
+          <NavigationProperty Name="BitkiTur1" Relationship="Self.FK__BitkiCins__Bitki__619B8048" FromRole="BitkiCins" ToRole="BitkiTur" />
+          <NavigationProperty Name="BitkiUretims" Relationship="Self.FK__BitkiUret__Bitki__3D5E1FD2" FromRole="BitkiCins" ToRole="BitkiUretim" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK__Siparis__BitkiCi__4D94879B" FromRole="BitkiCins" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="BitkiTur">
+          <Key>
+            <PropertyRef Name="BitkiTurAd" />
+          </Key>
+          <Property Name="BitkiTurAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Resim" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiCins" Relationship="Self.FK__BitkiCins__Bitki__619B8048" FromRole="BitkiTur" ToRole="BitkiCins" />
+        </EntityType>
+        <EntityType Name="BitkiUretim">
+          <Key>
+            <PropertyRef Name="UretimNo" />
+          </Key>
+          <Property Name="UretimNo" Type="Int32" Nullable="false" />
+          <Property Name="SeraNo" Type="Int16" Nullable="false" />
+          <Property Name="UretimAded" Type="Int32" Nullable="false" />
+          <Property Name="BitkiCinsAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Renk" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Kayıt_Eden_Calisan" Type="Int32" />
+          <NavigationProperty Name="Bitkis" Relationship="Self.FK__Bitki__UretimNo__3B75D760" FromRole="BitkiUretim" ToRole="Bitki" />
+          <NavigationProperty Name="BitkiCin" Relationship="Self.FK__BitkiUret__Bitki__3D5E1FD2" FromRole="BitkiUretim" ToRole="BitkiCins" />
+          <NavigationProperty Name="Calisan" Relationship="Self.FK__BitkiUret__Kayıt__693CA210" FromRole="BitkiUretim" ToRole="Calisan" />
+          <NavigationProperty Name="BitkiUretim_HamMadde" Relationship="Self.FK__BitkiUret__Ureti__571DF1D5" FromRole="BitkiUretim" ToRole="BitkiUretim_HamMadde" />
+        </EntityType>
+        <EntityType Name="BitkiUretim_HamMadde">
+          <Key>
+            <PropertyRef Name="KullanımNo" />
+          </Key>
+          <Property Name="KullanımNo" Type="Int32" Nullable="false" />
+          <Property Name="UretimNo" Type="Int32" Nullable="false" />
+          <Property Name="HamMaddeAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MiktarCinsi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miktar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BitkiUretim" Relationship="Self.FK__BitkiUret__Ureti__571DF1D5" FromRole="BitkiUretim_HamMadde" ToRole="BitkiUretim" />
+          <NavigationProperty Name="HamMadde" Relationship="Self.FK__BitkiUret__HamMa__5812160E" FromRole="BitkiUretim_HamMadde" ToRole="HamMadde" />
+          <NavigationProperty Name="MiktarCin" Relationship="Self.FK__BitkiUret__Mikta__5CD6CB2B" FromRole="BitkiUretim_HamMadde" ToRole="MiktarCins" />
+        </EntityType>
+        <EntityType Name="Calisan">
+          <Key>
+            <PropertyRef Name="CalisanID" />
+          </Key>
+          <Property Name="CalisanID" Type="Int32" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiUretims" Relationship="Self.FK__BitkiUret__Kayıt__693CA210" FromRole="Calisan" ToRole="BitkiUretim" />
+          <NavigationProperty Name="HamMadde_SatinAlma" Relationship="Self.FK__HamMadde___Satin__6A30C649" FromRole="Calisan" ToRole="HamMadde_SatinAlma" />
+        </EntityType>
+        <EntityType Name="HamMadde">
+          <Key>
+            <PropertyRef Name="HamMaddeAd" />
+          </Key>
+          <Property Name="HamMaddeAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MevcutMiktar" Type="Int32" Nullable="false" />
+          <Property Name="MiktarCins" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepoID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="BitkiUretim_HamMadde" Relationship="Self.FK__BitkiUret__HamMa__5812160E" FromRole="HamMadde" ToRole="BitkiUretim_HamMadde" />
+          <NavigationProperty Name="HamMadde_SatinAlma" Relationship="Self.FK__HamMadde___HamMa__59063A47" FromRole="HamMadde" ToRole="HamMadde_SatinAlma" />
+          <NavigationProperty Name="MiktarCin" Relationship="Self.FK__HamMadde__Miktar__5DCAEF64" FromRole="HamMadde" ToRole="MiktarCins" />
+        </EntityType>
+        <EntityType Name="HamMadde_SatinAlma">
+          <Key>
+            <PropertyRef Name="SatinAlmaNumarasi" />
+          </Key>
+          <Property Name="SatinAlmaNumarasi" Type="Int32" Nullable="false" />
+          <Property Name="HamMaddeAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TedarikciID" Type="Int32" Nullable="false" />
+          <Property Name="MiktarCins" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miktar" Type="Int32" Nullable="false" />
+          <Property Name="Tutar" Type="Int32" Nullable="false" />
+          <Property Name="SatinAlanCalisan" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Calisan" Relationship="Self.FK__HamMadde___Satin__6A30C649" FromRole="HamMadde_SatinAlma" ToRole="Calisan" />
+          <NavigationProperty Name="HamMadde" Relationship="Self.FK__HamMadde___HamMa__59063A47" FromRole="HamMadde_SatinAlma" ToRole="HamMadde" />
+          <NavigationProperty Name="MiktarCin" Relationship="Self.FK__HamMadde___Mikta__5BE2A6F2" FromRole="HamMadde_SatinAlma" ToRole="MiktarCins" />
+          <NavigationProperty Name="Tedarikci" Relationship="Self.FK__HamMadde___Tedar__70DDC3D8" FromRole="HamMadde_SatinAlma" ToRole="Tedarikci" />
+        </EntityType>
+        <EntityType Name="MiktarCin">
+          <Key>
+            <PropertyRef Name="MiktarCins" />
+          </Key>
+          <Property Name="MiktarCins" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BitkiUretim_HamMadde" Relationship="Self.FK__BitkiUret__Mikta__5CD6CB2B" FromRole="MiktarCins" ToRole="BitkiUretim_HamMadde" />
+          <NavigationProperty Name="HamMaddes" Relationship="Self.FK__HamMadde__Miktar__5DCAEF64" FromRole="MiktarCins" ToRole="HamMadde" />
+          <NavigationProperty Name="HamMadde_SatinAlma" Relationship="Self.FK__HamMadde___Mikta__5BE2A6F2" FromRole="MiktarCins" ToRole="HamMadde_SatinAlma" />
+        </EntityType>
+        <EntityType Name="Musteri">
+          <Key>
+            <PropertyRef Name="MusteriID" />
+          </Key>
+          <Property Name="MusteriID" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yas" Type="Byte" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sepets" Relationship="Self.FK__Sepet__MusteriID__00200768" FromRole="Musteri" ToRole="Sepet" />
+          <NavigationProperty Name="Siparis" Relationship="Self.FK__Siparis__Musteri__6D0D32F4" FromRole="Musteri" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="Sepet">
+          <Key>
+            <PropertyRef Name="SepetID" />
+          </Key>
+          <Property Name="SepetID" Type="Int32" Nullable="false" />
+          <Property Name="SiparisID" Type="Int32" Nullable="false" />
+          <Property Name="MusteriID" Type="Int32" Nullable="false" />
+          <Property Name="Urun" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdet" Type="Int16" />
+          <NavigationProperty Name="Musteri" Relationship="Self.FK__Sepet__MusteriID__00200768" FromRole="Sepet" ToRole="Musteri" />
+          <NavigationProperty Name="Sipari" Relationship="Self.FK__Sepet__SiparisID__01142BA1" FromRole="Sepet" ToRole="Siparis" />
+        </EntityType>
+        <EntityType Name="Sipari">
+          <Key>
+            <PropertyRef Name="SiparisID" />
+          </Key>
+          <Property Name="SiparisID" Type="Int32" Nullable="false" />
+          <Property Name="MusteriID" Type="Int32" Nullable="false" />
+          <Property Name="SiparisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BitkiCinsAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisAdedi" Type="Int16" />
+          <Property Name="YanMalzeme" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Renk" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BahceMalzemeleri" Relationship="Self.FK__Siparis__YanMalz__71D1E811" FromRole="Siparis" ToRole="BahceMalzemeleri" />
+          <NavigationProperty Name="BitkiCin" Relationship="Self.FK__Siparis__BitkiCi__4D94879B" FromRole="Siparis" ToRole="BitkiCins" />
+          <NavigationProperty Name="Musteri" Relationship="Self.FK__Siparis__Musteri__6D0D32F4" FromRole="Siparis" ToRole="Musteri" />
+          <NavigationProperty Name="Sepets" Relationship="Self.FK__Sepet__SiparisID__01142BA1" FromRole="Siparis" ToRole="Sepet" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tedarikci">
+          <Key>
+            <PropertyRef Name="TedarikciID" />
+          </Key>
+          <Property Name="TedarikciID" Type="Int32" Nullable="false" />
+          <Property Name="FirmaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IBAN" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BahceMalzemeleris" Relationship="Self.FK__BahceMalz__Tedar__7A672E12" FromRole="Tedarikci" ToRole="BahceMalzemeleri" />
+          <NavigationProperty Name="HamMadde_SatinAlma" Relationship="Self.FK__HamMadde___Tedar__70DDC3D8" FromRole="Tedarikci" ToRole="HamMadde_SatinAlma" />
+        </EntityType>
+        <Association Name="FK__BahceMalz__Bahce__66603565">
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="0..1" />
+          <End Role="BahceMalzemeUrun" Type="Self.BahceMalzemeUrun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BahceMalzemeleri">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Principal>
+            <Dependent Role="BahceMalzemeUrun">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BahceMalz__Tedar__7A672E12">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="0..1" />
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="TedarikciID" />
+            </Principal>
+            <Dependent Role="BahceMalzemeleri">
+              <PropertyRef Name="TedarikciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__YanMalz__71D1E811">
+          <End Role="BahceMalzemeleri" Type="Self.BahceMalzemeleri" Multiplicity="0..1" />
+          <End Role="Siparis" Type="Self.Sipari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BahceMalzemeleri">
+              <PropertyRef Name="BahceMalzemeAd" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="YanMalzeme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bitki__BitkiCins__3C69FB99">
+          <End Role="BitkiCins" Type="Self.BitkiCin" Multiplicity="1" />
+          <End Role="Bitki" Type="Self.Bitki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="Bitki">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bitki__UretimNo__3B75D760">
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="0..1" />
+          <End Role="Bitki" Type="Self.Bitki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiUretim">
+              <PropertyRef Name="UretimNo" />
+            </Principal>
+            <Dependent Role="Bitki">
+              <PropertyRef Name="UretimNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiCins__Bitki__619B8048">
+          <End Role="BitkiTur" Type="Self.BitkiTur" Multiplicity="0..1" />
+          <End Role="BitkiCins" Type="Self.BitkiCin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiTur">
+              <PropertyRef Name="BitkiTurAd" />
+            </Principal>
+            <Dependent Role="BitkiCins">
+              <PropertyRef Name="BitkiTur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Bitki__3D5E1FD2">
+          <End Role="BitkiCins" Type="Self.BitkiCin" Multiplicity="1" />
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="BitkiUretim">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__BitkiCi__4D94879B">
+          <End Role="BitkiCins" Type="Self.BitkiCin" Multiplicity="0..1" />
+          <End Role="Siparis" Type="Self.Sipari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiCins">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="BitkiCinsAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Kayıt__693CA210">
+          <End Role="Calisan" Type="Self.Calisan" Multiplicity="0..1" />
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calisan">
+              <PropertyRef Name="CalisanID" />
+            </Principal>
+            <Dependent Role="BitkiUretim">
+              <PropertyRef Name="Kayıt_Eden_Calisan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Ureti__571DF1D5">
+          <End Role="BitkiUretim" Type="Self.BitkiUretim" Multiplicity="1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiUretim">
+              <PropertyRef Name="UretimNo" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="UretimNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__HamMa__5812160E">
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="0..1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BitkiUret__Mikta__5CD6CB2B">
+          <End Role="MiktarCins" Type="Self.MiktarCin" Multiplicity="1" />
+          <End Role="BitkiUretim_HamMadde" Type="Self.BitkiUretim_HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="BitkiUretim_HamMadde">
+              <PropertyRef Name="MiktarCinsi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Satin__6A30C649">
+          <End Role="Calisan" Type="Self.Calisan" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calisan">
+              <PropertyRef Name="CalisanID" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="SatinAlanCalisan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___HamMa__59063A47">
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HamMadde">
+              <PropertyRef Name="HamMaddeAd" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="HamMaddeAd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde__Miktar__5DCAEF64">
+          <End Role="MiktarCins" Type="Self.MiktarCin" Multiplicity="1" />
+          <End Role="HamMadde" Type="Self.HamMadde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="HamMadde">
+              <PropertyRef Name="MiktarCins" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Mikta__5BE2A6F2">
+          <End Role="MiktarCins" Type="Self.MiktarCin" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MiktarCins">
+              <PropertyRef Name="MiktarCins" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="MiktarCins" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HamMadde___Tedar__70DDC3D8">
+          <End Role="Tedarikci" Type="Self.Tedarikci" Multiplicity="1" />
+          <End Role="HamMadde_SatinAlma" Type="Self.HamMadde_SatinAlma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tedarikci">
+              <PropertyRef Name="TedarikciID" />
+            </Principal>
+            <Dependent Role="HamMadde_SatinAlma">
+              <PropertyRef Name="TedarikciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sepet__MusteriID__00200768">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="MusteriID" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Siparis__Musteri__6D0D32F4">
+          <End Role="Musteri" Type="Self.Musteri" Multiplicity="1" />
+          <End Role="Siparis" Type="Self.Sipari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Musteri">
+              <PropertyRef Name="MusteriID" />
+            </Principal>
+            <Dependent Role="Siparis">
+              <PropertyRef Name="MusteriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sepet__SiparisID__01142BA1">
+          <End Role="Siparis" Type="Self.Sipari" Multiplicity="1" />
+          <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siparis">
+              <PropertyRef Name="SiparisID" />
+            </Principal>
+            <Dependent Role="Sepet">
+              <PropertyRef Name="SiparisID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Web_ProgramlamaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BahceMalzemeleris" EntityType="Self.BahceMalzemeleri" />
+          <EntitySet Name="BahceMalzemeUruns" EntityType="Self.BahceMalzemeUrun" />
+          <EntitySet Name="Bitkis" EntityType="Self.Bitki" />
+          <EntitySet Name="BitkiCins" EntityType="Self.BitkiCin" />
+          <EntitySet Name="BitkiTurs" EntityType="Self.BitkiTur" />
+          <EntitySet Name="BitkiUretims" EntityType="Self.BitkiUretim" />
+          <EntitySet Name="BitkiUretim_HamMadde" EntityType="Self.BitkiUretim_HamMadde" />
+          <EntitySet Name="Calisans" EntityType="Self.Calisan" />
+          <EntitySet Name="HamMaddes" EntityType="Self.HamMadde" />
+          <EntitySet Name="HamMadde_SatinAlma" EntityType="Self.HamMadde_SatinAlma" />
+          <EntitySet Name="MiktarCins" EntityType="Self.MiktarCin" />
+          <EntitySet Name="Musteris" EntityType="Self.Musteri" />
+          <EntitySet Name="Sepets" EntityType="Self.Sepet" />
+          <EntitySet Name="Siparis" EntityType="Self.Sipari" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tedarikcis" EntityType="Self.Tedarikci" />
+          <AssociationSet Name="FK__BahceMalz__Bahce__66603565" Association="Self.FK__BahceMalz__Bahce__66603565">
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleris" />
+            <End Role="BahceMalzemeUrun" EntitySet="BahceMalzemeUruns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BahceMalz__Tedar__7A672E12" Association="Self.FK__BahceMalz__Tedar__7A672E12">
+            <End Role="Tedarikci" EntitySet="Tedarikcis" />
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleris" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__YanMalz__71D1E811" Association="Self.FK__Siparis__YanMalz__71D1E811">
+            <End Role="BahceMalzemeleri" EntitySet="BahceMalzemeleris" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bitki__BitkiCins__3C69FB99" Association="Self.FK__Bitki__BitkiCins__3C69FB99">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="Bitki" EntitySet="Bitkis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bitki__UretimNo__3B75D760" Association="Self.FK__Bitki__UretimNo__3B75D760">
+            <End Role="BitkiUretim" EntitySet="BitkiUretims" />
+            <End Role="Bitki" EntitySet="Bitkis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiCins__Bitki__619B8048" Association="Self.FK__BitkiCins__Bitki__619B8048">
+            <End Role="BitkiTur" EntitySet="BitkiTurs" />
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Bitki__3D5E1FD2" Association="Self.FK__BitkiUret__Bitki__3D5E1FD2">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="BitkiUretim" EntitySet="BitkiUretims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__BitkiCi__4D94879B" Association="Self.FK__Siparis__BitkiCi__4D94879B">
+            <End Role="BitkiCins" EntitySet="BitkiCins" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Kayıt__693CA210" Association="Self.FK__BitkiUret__Kayıt__693CA210">
+            <End Role="Calisan" EntitySet="Calisans" />
+            <End Role="BitkiUretim" EntitySet="BitkiUretims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Ureti__571DF1D5" Association="Self.FK__BitkiUret__Ureti__571DF1D5">
+            <End Role="BitkiUretim" EntitySet="BitkiUretims" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__HamMa__5812160E" Association="Self.FK__BitkiUret__HamMa__5812160E">
+            <End Role="HamMadde" EntitySet="HamMaddes" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BitkiUret__Mikta__5CD6CB2B" Association="Self.FK__BitkiUret__Mikta__5CD6CB2B">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="BitkiUretim_HamMadde" EntitySet="BitkiUretim_HamMadde" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Satin__6A30C649" Association="Self.FK__HamMadde___Satin__6A30C649">
+            <End Role="Calisan" EntitySet="Calisans" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___HamMa__59063A47" Association="Self.FK__HamMadde___HamMa__59063A47">
+            <End Role="HamMadde" EntitySet="HamMaddes" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde__Miktar__5DCAEF64" Association="Self.FK__HamMadde__Miktar__5DCAEF64">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="HamMadde" EntitySet="HamMaddes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Mikta__5BE2A6F2" Association="Self.FK__HamMadde___Mikta__5BE2A6F2">
+            <End Role="MiktarCins" EntitySet="MiktarCins" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HamMadde___Tedar__70DDC3D8" Association="Self.FK__HamMadde___Tedar__70DDC3D8">
+            <End Role="Tedarikci" EntitySet="Tedarikcis" />
+            <End Role="HamMadde_SatinAlma" EntitySet="HamMadde_SatinAlma" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sepet__MusteriID__00200768" Association="Self.FK__Sepet__MusteriID__00200768">
+            <End Role="Musteri" EntitySet="Musteris" />
+            <End Role="Sepet" EntitySet="Sepets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Siparis__Musteri__6D0D32F4" Association="Self.FK__Siparis__Musteri__6D0D32F4">
+            <End Role="Musteri" EntitySet="Musteris" />
+            <End Role="Siparis" EntitySet="Siparis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sepet__SiparisID__01142BA1" Association="Self.FK__Sepet__SiparisID__01142BA1">
+            <End Role="Siparis" EntitySet="Siparis" />
+            <End Role="Sepet" EntitySet="Sepets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Web_ProgramlamaModelStoreContainer" CdmEntityContainer="Web_ProgramlamaEntities">
+          <EntitySetMapping Name="BahceMalzemeleris">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BahceMalzemeleri">
+              <MappingFragment StoreEntitySet="BahceMalzemeleri">
+                <ScalarProperty Name="BahceMalzemeAd" ColumnName="BahceMalzemeAd" />
+                <ScalarProperty Name="MevcutAdet" ColumnName="MevcutAdet" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="TedarikciID" ColumnName="TedarikciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BahceMalzemeUruns">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BahceMalzemeUrun">
+              <MappingFragment StoreEntitySet="BahceMalzemeUrun">
+                <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+                <ScalarProperty Name="BahceMalzemeAd" ColumnName="BahceMalzemeAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bitkis">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Bitki">
+              <MappingFragment StoreEntitySet="Bitki">
+                <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="UretimNo" ColumnName="UretimNo" />
+                <ScalarProperty Name="BitkiCinsAd" ColumnName="BitkiCinsAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiCins">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BitkiCin">
+              <MappingFragment StoreEntitySet="BitkiCins">
+                <ScalarProperty Name="BitkiCinsAd" ColumnName="BitkiCinsAd" />
+                <ScalarProperty Name="MevcutAded" ColumnName="MevcutAded" />
+                <ScalarProperty Name="LatinceAd" ColumnName="LatinceAd" />
+                <ScalarProperty Name="BitkiTur" ColumnName="BitkiTur" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="DepoID" ColumnName="DepoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiTurs">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BitkiTur">
+              <MappingFragment StoreEntitySet="BitkiTur">
+                <ScalarProperty Name="BitkiTurAd" ColumnName="BitkiTurAd" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiUretims">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BitkiUretim">
+              <MappingFragment StoreEntitySet="BitkiUretim">
+                <ScalarProperty Name="UretimNo" ColumnName="UretimNo" />
+                <ScalarProperty Name="SeraNo" ColumnName="SeraNo" />
+                <ScalarProperty Name="UretimAded" ColumnName="UretimAded" />
+                <ScalarProperty Name="BitkiCinsAd" ColumnName="BitkiCinsAd" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+                <ScalarProperty Name="Kayıt_Eden_Calisan" ColumnName="Kayıt_Eden_Calisan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiUretim_HamMadde">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.BitkiUretim_HamMadde">
+              <MappingFragment StoreEntitySet="BitkiUretim_HamMadde">
+                <ScalarProperty Name="KullanımNo" ColumnName="KullanımNo" />
+                <ScalarProperty Name="UretimNo" ColumnName="UretimNo" />
+                <ScalarProperty Name="HamMaddeAd" ColumnName="HamMaddeAd" />
+                <ScalarProperty Name="MiktarCinsi" ColumnName="MiktarCinsi" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calisans">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Calisan">
+              <MappingFragment StoreEntitySet="Calisan">
+                <ScalarProperty Name="CalisanID" ColumnName="CalisanID" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HamMaddes">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.HamMadde">
+              <MappingFragment StoreEntitySet="HamMadde">
+                <ScalarProperty Name="HamMaddeAd" ColumnName="HamMaddeAd" />
+                <ScalarProperty Name="MevcutMiktar" ColumnName="MevcutMiktar" />
+                <ScalarProperty Name="MiktarCins" ColumnName="MiktarCins" />
+                <ScalarProperty Name="DepoID" ColumnName="DepoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HamMadde_SatinAlma">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.HamMadde_SatinAlma">
+              <MappingFragment StoreEntitySet="HamMadde_SatinAlma">
+                <ScalarProperty Name="SatinAlmaNumarasi" ColumnName="SatinAlmaNumarasi" />
+                <ScalarProperty Name="HamMaddeAd" ColumnName="HamMaddeAd" />
+                <ScalarProperty Name="TedarikciID" ColumnName="TedarikciID" />
+                <ScalarProperty Name="MiktarCins" ColumnName="MiktarCins" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="SatinAlanCalisan" ColumnName="SatinAlanCalisan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MiktarCins">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.MiktarCin">
+              <MappingFragment StoreEntitySet="MiktarCins">
+                <ScalarProperty Name="MiktarCins" ColumnName="MiktarCins" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musteris">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Musteri">
+              <MappingFragment StoreEntitySet="Musteri">
+                <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Yas" ColumnName="Yas" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sepets">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Sepet">
+              <MappingFragment StoreEntitySet="Sepet">
+                <ScalarProperty Name="SepetID" ColumnName="SepetID" />
+                <ScalarProperty Name="SiparisID" ColumnName="SiparisID" />
+                <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+                <ScalarProperty Name="Urun" ColumnName="Urun" />
+                <ScalarProperty Name="UrunAdet" ColumnName="UrunAdet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Sipari">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="SiparisID" ColumnName="SiparisID" />
+                <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+                <ScalarProperty Name="SiparisTarihi" ColumnName="SiparisTarihi" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="BitkiCinsAd" ColumnName="BitkiCinsAd" />
+                <ScalarProperty Name="SiparisAdedi" ColumnName="SiparisAdedi" />
+                <ScalarProperty Name="YanMalzeme" ColumnName="YanMalzeme" />
+                <ScalarProperty Name="Renk" ColumnName="Renk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tedarikcis">
+            <EntityTypeMapping TypeName="Web_ProgramlamaModel.Tedarikci">
+              <MappingFragment StoreEntitySet="Tedarikci">
+                <ScalarProperty Name="TedarikciID" ColumnName="TedarikciID" />
+                <ScalarProperty Name="FirmaAd" ColumnName="FirmaAd" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

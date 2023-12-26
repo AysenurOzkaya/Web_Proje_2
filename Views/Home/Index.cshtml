@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiTur>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<head>
+
+</head>
+
+<body>
+    <h2>Seçim Yapın</h2>
+
+        <table class="table">
+            <tr>
+
+                <th style="background-color: aliceblue">
+
+                    <h2> Bitki</h2> <h3 style="color:black" >@Html.ActionLink("Git", "Bitki", new { @class = "btn btn-primary" })</h3>
+
+                </th>
+
+                <th style="background-color: aliceblue">
+
+                    <h2> Bahçe Malzemeleri</h2> <h3 style="color:black">@Html.ActionLink("Git", "BahceMalzeme", new { @class = "btn btn-primary" })</h3>
+
+                </th>
+        </table>
+  
+</body>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiTur>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style=" height:100px" >
+            @Html.DisplayFor(modelItem => item.Resim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BitkiTurAd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BitkiTurAd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BitkiTurAd })
+        </td>
+    </tr>
+}
+
+</table>

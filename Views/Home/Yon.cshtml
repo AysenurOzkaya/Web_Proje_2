@@ -1,0 +1,60 @@
+﻿@model Web_Proje_2.Models.BitkiCin
+@{
+    ViewBag.Title = "Yon";
+}
+
+
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.Resim))
+            {
+                <img src="@Url.Content(Model.Resim)" alt="Resim">
+            }
+            else
+            {
+                <span>Resim Yok</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiCinsAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiCinsAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LatinceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LatinceAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    @using (Html.BeginForm("Yon", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("id", Model.BitkiCinsAd)
+        <input type="submit" value="Sepete Ekle" />
+    }
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Web_Proje_2.Models.HamMadde_SatinAlma>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tutar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calisan.Sifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HamMadde.MiktarCins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiktarCin.MiktarCins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tedarikci.FirmaAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tutar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calisan.Sifre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HamMadde.MiktarCins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiktarCin.MiktarCins)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tedarikci.FirmaAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SatinAlmaNumarasi }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SatinAlmaNumarasi }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SatinAlmaNumarasi })
+        </td>
+    </tr>
+}
+
+</table>

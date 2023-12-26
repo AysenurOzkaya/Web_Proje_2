@@ -1,0 +1,72 @@
+﻿@model Web_Proje_2.Models.BitkiUretim
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BitkiUretim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SeraNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeraNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimAded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimAded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiCin.LatinceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiCin.LatinceAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calisan.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calisan.Sifre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

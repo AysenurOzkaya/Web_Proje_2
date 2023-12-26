@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiTur>
+    @{
+        ViewBag.Title = "Bitki";
+    }
+
+    <h2>Bitki</h2>
+    <head>
+
+    </head>
+
+    <body>
+        <h2>Bitki Türleri</h2>
+
+
+        @foreach (Web_Proje_2.Models.BitkiTur item in @Model)
+        {<table class="table">
+                <tr>
+
+                    <th style="background-color: aliceblue">
+                        <h3>@Html.DisplayFor(modelItem => item.BitkiTurAd)</h3>
+                    </th>
+
+
+                </tr>
+                <tr>
+                    <td style="background-color: aliceblue">
+                        <img src="@Url.Content(item.Resim)" height="500" width="500" />
+                    </td>
+                    <td style="background-color: aliceblue">
+                        <h3 style="color:black" > @Html.ActionLink("Git", "BitkiTurSecim", new { id = item.BitkiTurAd })</h3>
+                    </td>
+                </tr>
+
+            </table>
+        }
+
+    </body>
+

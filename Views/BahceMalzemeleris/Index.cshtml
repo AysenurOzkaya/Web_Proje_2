@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BahceMalzemeleri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MevcutAdet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tedarikci.FirmaAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MevcutAdet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tedarikci.FirmaAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BahceMalzemeAd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BahceMalzemeAd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BahceMalzemeAd })
+        </td>
+    </tr>
+}
+
+</table>

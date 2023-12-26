@@ -1,0 +1,66 @@
+﻿@model Web_Proje_2.Models.BitkiUretim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BitkiUretim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SeraNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeraNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimAded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimAded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiCin.LatinceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiCin.LatinceAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calisan.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calisan.Sifre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UretimNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

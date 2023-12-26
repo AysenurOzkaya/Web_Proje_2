@@ -1,0 +1,67 @@
+﻿
+@model Web_Proje_2.Models.BahceMalzemeleri
+@{
+    ViewBag.Title = "YonMalzeme";
+}
+
+<div>
+    <h4>Bahce Malzemeleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @if (!string.IsNullOrEmpty(Model.Resim))
+            {
+                <img src="@Url.Content(Model.Resim)" alt="Resim">
+            }
+            else
+            {
+                <span>Resim Yok</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BahceMalzemeAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BahceMalzemeAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MevcutAdet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MevcutAdet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tedarikci.FirmaAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tedarikci.FirmaAd)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @using (Html.BeginForm("YonMalzeme", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("id", Model.BahceMalzemeAd)
+        <input type="submit" value="Sepete Ekle" />
+    }
+</div>

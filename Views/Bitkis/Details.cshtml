@@ -1,0 +1,42 @@
+﻿@model Web_Proje_2.Models.Bitki
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bitki</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Renk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiCin.LatinceAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiCin.LatinceAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitkiUretim.BitkiCinsAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitkiUretim.BitkiCinsAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SeriNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

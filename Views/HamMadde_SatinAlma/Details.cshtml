@@ -1,0 +1,66 @@
+﻿@model Web_Proje_2.Models.HamMadde_SatinAlma
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HamMadde_SatinAlma</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miktar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tutar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calisan.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calisan.Sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HamMadde.MiktarCins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HamMadde.MiktarCins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiktarCin.MiktarCins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiktarCin.MiktarCins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tedarikci.FirmaAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tedarikci.FirmaAd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SatinAlmaNumarasi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

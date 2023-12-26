@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Web_Proje_2.Models.BitkiCin>
+@{
+    ViewBag.Title = "BitkiTurSecim";
+}
+
+
+<h2>Seçilen</h2>
+
+<table class="table">
+    <thead  >
+        <tr style="background-color: aliceblue">
+            <th>Tür Adı</th>
+            <th>Bitki Cinsi</th>
+            <!-- Diğer sütunlar -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr style="background-color: aliceblue">
+                <td style="background-color: aliceblue">@product.BitkiTur1.BitkiTurAd</td>
+                <td style="background-color: aliceblue">@product.BitkiCinsAd</td>
+                <td style="background-color: aliceblue">@Html.ActionLink("Git", "Yon", new { id = product.BitkiCinsAd })</td>
+                <!-- Diğer sütunlar -->
+            </tr>
+        }
+    </tbody>
+</table>
+

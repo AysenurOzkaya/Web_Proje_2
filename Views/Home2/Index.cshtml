@@ -1,0 +1,26 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@for(int i = 0; i < 9; i++)
+            {
+<table class="table">
+    <tr>
+
+        <th>
+            @if (Model.Length > i)
+            {
+                string k = Model[i];
+            <h2> @Model[i]</h2>  @Html.ActionLink("Git", "Index", k,null,new { @class="btn btn-primary"})
+            }
+        </th>
+        
+
+</table>  
+            }
+           
+    
+

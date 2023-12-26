@@ -1,0 +1,28 @@
+﻿@model Web_Proje_2.Models.Calisan
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <div class="row " style="height:100vh">
+        <div class="col-4 mx-auto my-auto">
+            <div class="card ">
+                <div class="card-body">
+                    <h2>Giriş Formu</h2>
+                    @ViewBag.Mesaj
+                    @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <input name="CalisanID" type="text" placeholder="Kullancı Adı" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input name="Sifre" type="password" placeholder="Şifre" class="form-control">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
